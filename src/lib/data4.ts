@@ -67,9 +67,6 @@ export const currentInterests = [
   "Business Process Digitalization",
 ];
 
-export const siteNote =
-  "A small note on this site: I directed its content and structure through AI-assisted development rather than writing every line by hand — the same shift from analysis to decision-making described above, just applied to a personal project.";
-
 export type JourneyStage = {
   id: string;
   stage: string;

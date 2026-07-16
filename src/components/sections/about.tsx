@@ -1,4 +1,4 @@
-import { aboutStory, currentInterests } from "@/lib/data";
+import { aboutStory, currentInterests, siteNote } from "@/lib/data";
 import { Reveal, RevealItem, RevealStagger } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
@@ -36,6 +36,12 @@ export function About() {
           ))}
         </RevealStagger>
       </div>
+
+      <Reveal delay={0.1}>
+        <p className="mt-10 max-w-xl border-t border-border pt-6 text-xs leading-relaxed text-ink-muted/70">
+          {siteNote}
+        </p>
+      </Reveal>
     </Section>
   );
 }
