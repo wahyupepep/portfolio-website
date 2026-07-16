@@ -1,24 +1,29 @@
 const primaryNodes = [
-  { id: "business", label: "Business", x: 140, y: 560 },
-  { id: "systems", label: "Systems", x: 460, y: 210 },
-  { id: "product", label: "Product", x: 820, y: 560 },
-  { id: "ai", label: "AI", x: 1080, y: 210 },
+  { id: "business", label: "Business", x: 70, y: 120 },
+  { id: "systems", label: "Systems", x: 60, y: 680 },
+  { id: "product", label: "Product", x: 1130, y: 120 },
+  { id: "ai", label: "AI", x: 1140, y: 680 },
 ];
 
 const minorNodes = [
-  { x: 300, y: 420, r: 5 },
-  { x: 620, y: 400, r: 4 },
-  { x: 940, y: 400, r: 5 },
-  { x: 200, y: 260, r: 4 },
-  { x: 700, y: 660, r: 4 },
-  { x: 980, y: 660, r: 5 },
+  { x: 180, y: 300, r: 5 },
+  { x: 1020, y: 300, r: 4 },
+  { x: 150, y: 500, r: 5 },
+  { x: 1050, y: 500, r: 4 },
+  { x: 600, y: 90, r: 4 },
+  { x: 600, y: 720, r: 5 },
 ];
 
+// Edges trace the outer perimeter (top, sides) so the connecting lines stay
+// in the margins and never cross the centered headline/content column.
 const edges: [number, number][] = [
-  [0, 1],
-  [1, 2],
-  [2, 3],
+  [0, 2], // business (top-left) -> product (top-right)
+  [0, 1], // business (top-left) -> systems (bottom-left)
+  [2, 3], // product (top-right) -> ai (bottom-right)
 ];
+
+const CENTER_X = 600;
+const CENTER_Y = 400;
 
 export function HeroNetwork() {
   return (
@@ -50,11 +55,14 @@ export function HeroNetwork() {
           const from = primaryNodes[a];
           const to = primaryNodes[b];
           const midX = (from.x + to.x) / 2;
-          const midY = Math.min(from.y, to.y) - 140;
+          const midY = (from.y + to.y) / 2;
+          // Bow the curve away from center so it stays clear of the content column.
+          const controlX = midX + (midX - CENTER_X) * 0.35;
+          const controlY = midY + (midY - CENTER_Y) * 0.35;
           return (
             <path
               key={`edge-${i}`}
-              d={`M ${from.x} ${from.y} Q ${midX} ${midY} ${to.x} ${to.y}`}
+              d={`M ${from.x} ${from.y} Q ${controlX} ${controlY} ${to.x} ${to.y}`}
               fill="none"
               stroke="url(#edge-gradient)"
               strokeWidth={1.5}
@@ -84,7 +92,7 @@ export function HeroNetwork() {
       {primaryNodes.map((n, i) => (
         <div
           key={n.id}
-          className="absolute animate-float rounded-full border border-border-strong bg-surface/70 px-4 py-1.5 text-xs font-medium text-ink-muted shadow-lg backdrop-blur-md"
+          className="absolute hidden animate-float rounded-full border border-border-strong bg-surface/70 px-4 py-1.5 text-xs font-medium text-ink-muted shadow-lg backdrop-blur-md xl:block"
           style={{
             left: `${(n.x / 1200) * 100}%`,
             top: `${(n.y / 800) * 100}%`,

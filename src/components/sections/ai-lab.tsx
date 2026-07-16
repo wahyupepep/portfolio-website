@@ -4,7 +4,7 @@ import { Reveal, RevealItem, RevealStagger } from "@/components/ui/reveal";
 
 export function AILab() {
   return (
-    <section id="ai-lab" className="relative overflow-hidden bg-midnight py-24 sm:py-32">
+    <section id="ai-lab" className="relative scroll-mt-24 overflow-hidden bg-midnight py-24 sm:py-32">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.25]"
         style={{

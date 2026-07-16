@@ -40,7 +40,7 @@ export function Navbar() {
           <span className="hidden sm:inline">{profile.name.split(" ")[0]}</span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -62,7 +62,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink md:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink lg:hidden"
             aria-label="Toggle menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -77,7 +77,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-4 right-4 top-[68px] rounded-2xl border border-border bg-surface/95 p-4 shadow-2xl backdrop-blur-xl md:hidden"
+            className="absolute left-4 right-4 top-[68px] rounded-2xl border border-border bg-surface/95 p-4 shadow-2xl backdrop-blur-xl lg:hidden"
           >
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (

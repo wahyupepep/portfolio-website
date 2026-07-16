@@ -22,7 +22,7 @@ export function Section({
   align = "left",
 }: SectionProps) {
   return (
-    <section id={id} className={cn("relative py-24 sm:py-32", className)}>
+    <section id={id} className={cn("relative scroll-mt-24 py-24 sm:py-32", className)}>
       <div className="mx-auto max-w-6xl px-6 sm:px-8">
         {(kicker || title || subtitle) && (
           <div className={cn("mb-14 max-w-2xl", align === "center" && "mx-auto text-center")}>
