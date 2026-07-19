@@ -55,7 +55,7 @@ export const aboutStory = [
     id: "now",
     kicker: "Where I'm headed",
     title: "From analysis to product ownership",
-    body: "At JMC Indonesia, my role has started shifting from analyzing what's needed to deciding what to build and why — currently shaping the roadmap for the company's first subscription-based HRIS product, while building hands-on AI automation skills on the side.",
+    body: "At JMC Indonesia, my role has started shifting from analyzing what's needed to deciding what to build and why — currently shaping the roadmap for the company's first subscription-based HRIS product, while shipping my first AI automation project on the side (an AI-powered Telegram bookkeeping bot, built with n8n).",
   },
 ];
 
@@ -273,9 +273,9 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "ai-automation",
-    title: "AI & Automation — Currently Learning",
+    title: "AI & Automation",
     accent: "cyan",
-    skills: ["n8n (in progress)", "AI/LLM Feasibility Research", "Prompt Engineering (exploring)"],
+    skills: ["n8n Workflow Automation", "AI/LLM Feasibility Research", "Vision API Integration (Gemini)", "Prompt Engineering"],
   },
   {
     id: "soft-skills",
@@ -407,21 +407,44 @@ export const projects: Project[] = [
 export type AILabProject = {
   id: string;
   title: string;
+  tagline: string;
   description: string;
   workflow: string[];
+  workflowImage?: string;
   benefits: string[];
+  logo?: string;
+  github?: string;
 };
 
-// Intentionally empty — no automation project is finished yet.
-// Fill this in once your first real n8n automation is built and tested.
-// Do not add placeholder/fictional projects here; an empty array is safer
-// for this section than content that can't hold up if someone asks about it.
-export const aiLabProjects: AILabProject[] = [];
+export const aiLabProjects: AILabProject[] = [
+  {
+    id: "nominala-bookkeeping-bot",
+    title: "Nominala",
+    tagline: "An AI Telegram bot that logs a business expense from a single photo of the receipt.",
+    description:
+      "A Telegram bot that turns expense tracking into one action — photograph a receipt — using Gemini Vision to read the amount and date, then guiding the user through categorization via chat. The hardest part wasn't the AI call itself; it was building real multi-step conversation state on top of n8n's stateless execution model, and debugging failure points like binary data handling and OAuth scopes that silently went stale.",
+    workflow: [
+      "User photographs a receipt in Telegram",
+      "Gemini Vision extracts the date and total amount automatically",
+      "Bot confirms the details and walks the user through category and notes via inline buttons — no typing needed",
+      "Data is saved to Google Sheets, which also works as editable master data for categories",
+      "Whitelisted admins can generate on-demand Excel reports by month or year, delivered back in the chat",
+    ],
+    workflowImage: "/nominala-workflow.svg",
+    benefits: [
+      "Expense entry drops to a single action instead of manual data entry",
+      "Categories can be edited directly in a spreadsheet — no redeployment needed",
+      "On-demand financial reporting without leaving the chat interface",
+    ],
+    logo: "/nominala-icon.png",
+    github: "https://github.com/wahyupepep/nominala-telegram-bot",
+  },
+];
 
 export const learningRoadmap = {
   currentFocus: [
     "Product thinking (prioritization frameworks like RICE/MoSCoW)",
-    "n8n & AI automation basics",
+    "Deeper n8n workflows (state management, multi-step conversations)",
     "Writing clear product requirements",
   ],
   futureVision: ["Product Owner", "Technical Product Manager"],

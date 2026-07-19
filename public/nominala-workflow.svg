@@ -1,0 +1,79 @@
+<svg width="640" height="760" viewBox="0 0 640 760" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="640" height="760" rx="20" fill="#0B1220"/>
+
+  <!-- connecting spine -->
+  <line x1="80" y1="110" x2="80" y2="660" stroke="#2A3550" stroke-width="2" stroke-dasharray="4 6"/>
+
+  <!-- Step 1 -->
+  <g>
+    <circle cx="80" cy="90" r="34" fill="url(#badgeGrad)"/>
+    <g transform="translate(64,74)" fill="none" stroke="#0B1220" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="1" y="6" width="30" height="21" rx="3"/>
+      <path d="M9 6 L12 2 H20 L23 6"/>
+      <circle cx="16" cy="16.5" r="6"/>
+    </g>
+    <rect x="130" y="58" width="470" height="64" rx="14" fill="#141B2E" stroke="#232B45"/>
+    <text x="152" y="84" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#F4F6FB">Photograph the receipt</text>
+    <text x="152" y="105" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9AA4C0">User sends one photo in Telegram — no manual form</text>
+  </g>
+
+  <!-- Step 2 -->
+  <g>
+    <circle cx="80" cy="212" r="34" fill="url(#badgeGrad)"/>
+    <g transform="translate(63,196)" fill="none" stroke="#0B1220" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 16 C7 5, 27 5, 33 16 C27 27, 7 27, 1 16 Z"/>
+      <circle cx="17" cy="16" r="5.5"/>
+    </g>
+    <rect x="130" y="180" width="470" height="64" rx="14" fill="#141B2E" stroke="#232B45"/>
+    <text x="152" y="206" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#F4F6FB">Gemini Vision reads the data</text>
+    <text x="152" y="227" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9AA4C0">Total amount and date are extracted automatically</text>
+  </g>
+
+  <!-- Step 3 -->
+  <g>
+    <circle cx="80" cy="334" r="34" fill="url(#badgeGrad)"/>
+    <g transform="translate(63,318)" fill="none" stroke="#0B1220" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="1" y="2" width="32" height="22" rx="5"/>
+      <path d="M9 24 L9 30 L16 24"/>
+      <path d="M7 10 H27 M7 16 H20" stroke-linecap="round"/>
+    </g>
+    <rect x="130" y="302" width="470" height="64" rx="14" fill="#141B2E" stroke="#232B45"/>
+    <text x="152" y="328" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#F4F6FB">Confirm via chat buttons</text>
+    <text x="152" y="349" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9AA4C0">Category and notes picked with inline buttons — no typing</text>
+  </g>
+
+  <!-- Step 4 -->
+  <g>
+    <circle cx="80" cy="456" r="34" fill="url(#badgeGrad)"/>
+    <g transform="translate(63,440)" fill="none" stroke="#0B1220" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="1" y="1" width="32" height="30" rx="3"/>
+      <path d="M1 11 H33 M1 21 H33 M12 1 V31 M22 1 V31"/>
+    </g>
+    <rect x="130" y="424" width="470" height="64" rx="14" fill="#141B2E" stroke="#232B45"/>
+    <text x="152" y="450" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#F4F6FB">Saved to Google Sheets</text>
+    <text x="152" y="471" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9AA4C0">Doubles as editable master data — categories change with no redeploy</text>
+  </g>
+
+  <!-- Step 5 -->
+  <g>
+    <circle cx="80" cy="578" r="34" fill="url(#badgeGrad)"/>
+    <g transform="translate(64,561)" fill="none" stroke="#0B1220" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 2 H22 L30 10 V32 H2 Z"/>
+      <path d="M22 2 V10 H30"/>
+      <path d="M7 18 H25 M7 24 H25" stroke-linecap="round"/>
+    </g>
+    <rect x="130" y="546" width="470" height="64" rx="14" fill="#141B2E" stroke="#232B45"/>
+    <text x="152" y="572" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#F4F6FB">On-demand Excel report</text>
+    <text x="152" y="593" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#9AA4C0">Whitelisted admins pull a monthly or yearly report, in-chat</text>
+  </g>
+
+  <!-- caption -->
+  <text x="80" y="670" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5D6684">Built with n8n · Telegram Bot API · Gemini Vision · Google Sheets/Drive · Docker</text>
+</svg>

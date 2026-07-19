@@ -5,7 +5,8 @@
       "Skill(run)",
       "Skill(run:*)",
       "Bash(npx --yes playwright --version)",
-      "Read(//Users/pepep/Library/Caches/**)"
+      "Read(//Users/pepep/Library/Caches/**)",
+      "Bash(node audit-responsive.mjs)"
     ]
   }
 }

@@ -2,7 +2,8 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { type ReactNode, useEffect } from "react";
+import { type ReactNode, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 export function Modal({
   open,
@@ -13,6 +14,12 @@ export function Modal({
   onClose: () => void;
   children: ReactNode;
 }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   useEffect(() => {
     if (!open) return;
     const prevOverflow = document.body.style.overflow;
@@ -29,7 +36,9 @@ export function Modal({
     };
   }, [open, onClose]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -65,6 +74,7 @@ export function Modal({
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

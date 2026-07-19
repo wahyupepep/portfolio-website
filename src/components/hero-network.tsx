@@ -1,29 +1,25 @@
 const primaryNodes = [
-  { id: "business", label: "Business", x: 70, y: 120 },
-  { id: "systems", label: "Systems", x: 60, y: 680 },
-  { id: "product", label: "Product", x: 1130, y: 120 },
-  { id: "ai", label: "AI", x: 1140, y: 680 },
+  { id: "business", label: "Business", x: 50, y: 700 },
+  { id: "systems", label: "Systems", x: 420, y: 140 },
+  { id: "ai", label: "AI", x: 1150, y: 100 },
+  { id: "product", label: "Product", x: 780, y: 660 },
 ];
 
 const minorNodes = [
-  { x: 180, y: 300, r: 5 },
-  { x: 1020, y: 300, r: 4 },
-  { x: 150, y: 500, r: 5 },
-  { x: 1050, y: 500, r: 4 },
-  { x: 600, y: 90, r: 4 },
-  { x: 600, y: 720, r: 5 },
+  { x: 230, y: 470, r: 5 },
+  { x: 970, y: 330, r: 4 },
+  { x: 760, y: 130, r: 4 },
+  { x: 440, y: 690, r: 5 },
 ];
 
-// Edges trace the outer perimeter (top, sides) so the connecting lines stay
-// in the margins and never cross the centered headline/content column.
-const edges: [number, number][] = [
-  [0, 2], // business (top-left) -> product (top-right)
-  [0, 1], // business (top-left) -> systems (bottom-left)
-  [2, 3], // product (top-right) -> ai (bottom-right)
+// Two independent mirrored arcs: business (bottom-left) sweeps up along the
+// left margin to systems (near the avatar); ai (top-right) sweeps down along
+// the right margin to product (near the avatar). They never touch the
+// centered headline/content column, and never connect to each other.
+const edges: { from: number; to: number; control: [number, number] }[] = [
+  { from: 0, to: 1, control: [20, 150] }, // business -> systems
+  { from: 2, to: 3, control: [1180, 650] }, // ai -> product
 ];
-
-const CENTER_X = 600;
-const CENTER_Y = 400;
 
 export function HeroNetwork() {
   return (
@@ -40,7 +36,7 @@ export function HeroNetwork() {
 
       <svg
         viewBox="0 0 1200 800"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="none"
         className="h-full w-full opacity-[0.55] dark:opacity-70"
       >
         <defs>
@@ -51,24 +47,20 @@ export function HeroNetwork() {
           </linearGradient>
         </defs>
 
-        {edges.map(([a, b], i) => {
-          const from = primaryNodes[a];
-          const to = primaryNodes[b];
-          const midX = (from.x + to.x) / 2;
-          const midY = (from.y + to.y) / 2;
-          // Bow the curve away from center so it stays clear of the content column.
-          const controlX = midX + (midX - CENTER_X) * 0.35;
-          const controlY = midY + (midY - CENTER_Y) * 0.35;
+        {edges.map((e, i) => {
+          const from = primaryNodes[e.from];
+          const to = primaryNodes[e.to];
           return (
             <path
               key={`edge-${i}`}
-              d={`M ${from.x} ${from.y} Q ${controlX} ${controlY} ${to.x} ${to.y}`}
+              d={`M ${from.x} ${from.y} Q ${e.control[0]} ${e.control[1]} ${to.x} ${to.y}`}
               fill="none"
               stroke="url(#edge-gradient)"
               strokeWidth={1.5}
               strokeDasharray="6 10"
               className="animate-dash"
               opacity={0.6}
+              vectorEffect="non-scaling-stroke"
             />
           );
         })}
@@ -81,11 +73,20 @@ export function HeroNetwork() {
             r={n.r}
             fill="var(--color-ink-muted)"
             opacity={0.35}
+            vectorEffect="non-scaling-stroke"
           />
         ))}
 
         {primaryNodes.map((n) => (
-          <circle key={n.id} cx={n.x} cy={n.y} r={5} fill="var(--color-electric)" opacity={0.9} />
+          <circle
+            key={n.id}
+            cx={n.x}
+            cy={n.y}
+            r={5}
+            fill="var(--color-electric)"
+            opacity={0.9}
+            vectorEffect="non-scaling-stroke"
+          />
         ))}
       </svg>
 
