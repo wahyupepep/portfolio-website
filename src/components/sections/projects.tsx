@@ -26,7 +26,7 @@ export function Projects() {
       id="projects"
       kicker="Featured Projects"
       title="Product case studies, not just code"
-      subtitle="Every project here started as a business problem. Click a card to see the full case study — context, solution, and impact."
+      subtitle="Every project here started as a business problem. Click a card to see the full case study: context, solution, and impact."
     >
       <div className="mb-8 flex flex-wrap gap-2">
         {projectFilters.map((f) => (

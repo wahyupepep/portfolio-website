@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUp, Mail } from "lucide-react";
-import { navLinks, profile } from "@/lib/data";
+import { navLinks, profile, siteNote } from "@/lib/data";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { Magnetic } from "@/components/ui/magnetic";
 
@@ -69,7 +69,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col-reverse items-center justify-between gap-6 border-t border-border pt-6 sm:flex-row">
+        <p className="mt-10 max-w-xl text-xs leading-relaxed text-ink-muted/70">{siteNote}</p>
+
+        <div className="mt-6 flex flex-col-reverse items-center justify-between gap-6 border-t border-border pt-6 sm:flex-row">
           <p className="text-xs text-ink-muted">
             © {year} {profile.name}. Built with intention.
           </p>

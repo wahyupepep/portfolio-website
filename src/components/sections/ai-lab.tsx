@@ -39,8 +39,9 @@ export function AILab() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-4 text-lg leading-relaxed text-white/60">
-              Experiments in agentic workflows, LLM integration, and automation — treating AI as a
-              redesign tool for how work gets done, not a feature bolted onto the old process.
+              Experiments in agentic workflows, LLM integration, and automation. I&apos;m exploring
+              how AI can redesign the way work gets done, rather than just being added as a feature
+              on top of an old process.
             </p>
           </Reveal>
         </div>

@@ -33,10 +33,9 @@ export function ProductThinking() {
         <div className="rounded-2xl border border-border bg-surface-2/50 p-6 sm:p-8">
           <p className="text-sm leading-relaxed text-ink-muted">
             <span className="font-medium text-ink">My approach: </span>
-            I don&apos;t start with a solution. I start by validating whether the problem is real,
-            map how the opportunity connects to a measurable outcome, and only then narrow down to
-            the smallest shippable version that tests the riskiest assumption — the same instinct
-            that shaped every system I&apos;ve analyzed.
+            I don&apos;t start with a solution. I validate whether the problem is real, connect it
+            to a measurable outcome, then narrow down to the smallest version that tests the
+            riskiest assumption first.
           </p>
         </div>
       </Reveal>

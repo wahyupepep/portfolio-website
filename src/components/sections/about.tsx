@@ -1,4 +1,4 @@
-import { aboutStory, currentInterests, siteNote } from "@/lib/data";
+import { aboutStory, currentInterests } from "@/lib/data";
 import { Reveal, RevealItem, RevealStagger } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +9,7 @@ export function About() {
       id="about"
       kicker="About"
       title="From understanding business to building products"
-      subtitle="A career built on one belief: software only matters if it solves the business problem underneath it."
+      subtitle="Software only matters if it solves the business problem underneath it."
     >
       <div className="relative grid gap-10 border-l border-border pl-8 sm:pl-10">
         {aboutStory.map((chapter, i) => (
@@ -36,12 +36,6 @@ export function About() {
           ))}
         </RevealStagger>
       </div>
-
-      <Reveal delay={0.1}>
-        <p className="mt-10 max-w-xl border-t border-border pt-6 text-xs leading-relaxed text-ink-muted/70">
-          {siteNote}
-        </p>
-      </Reveal>
     </Section>
   );
 }

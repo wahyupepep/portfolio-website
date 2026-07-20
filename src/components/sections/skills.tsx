@@ -34,7 +34,7 @@ export function Skills() {
       id="skills"
       kicker="Capabilities"
       title="A toolkit spanning business, product, and AI"
-      subtitle="Not a list of tools I've touched — a set of capabilities I use to move a problem from ambiguous to shipped."
+      subtitle="The skills I actually use to move a problem from unclear to shipped, not just a list of tools I've touched."
     >
       <RevealStagger className="grid gap-5 md:grid-cols-2">
         {skillCategories.map((category) => (

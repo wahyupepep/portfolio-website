@@ -67,7 +67,7 @@ export function Contact() {
           <Reveal delay={0.1}>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-ink-muted">
               Whether it&apos;s a product role, an automation idea, or just a conversation about
-              turning business problems into digital products — I&apos;d love to hear from you.
+              turning business problems into digital products, I&apos;d love to hear from you.
             </p>
           </Reveal>
 
@@ -169,7 +169,7 @@ export function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-center text-sm text-emerald"
                 >
-                  Opening your email client — talk soon!
+                  Opening your email client, talk soon!
                 </motion.p>
               )}
             </div>
